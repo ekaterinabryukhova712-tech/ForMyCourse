@@ -1,0 +1,15 @@
+import requests
+from requests import HTTPError
+
+# На вход принимаем нужный http-код, по умолчанию - 200 (Нормальное завершение запроса)
+def send_request(status_code=200):
+
+    # Функция requests.get отправляет GET-запрос по указанному URL и возвращает ответ
+    response = requests.get("https://httpstat.us/%d" % status_code)
+
+    # По-умолчанию библиотека requests не выбрасывает исключения при кодах, означающих ошибку
+    # исключение нужно вызвать самому при помощи функции raise_for_status
+    response.raise_for_status()
+
+    # Возвращаем код ответа
+    return response.status_code
