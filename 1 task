@@ -13,3 +13,6 @@ def send_request(status_code=200):
 
     # Возвращаем код ответа
     return response.status_code
+
+# Читаем ввод пользователя и преобразуем строку из input в int
+code = int(input("Введите http код для проверки >"))
